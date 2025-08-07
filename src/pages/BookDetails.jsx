@@ -23,7 +23,6 @@ const BookDetails = () => {
 
   const handleRead = (book) => {
     saveReadBooks(book);
-    console.log(book.bookId);
   };
   const handleWishList = (book) => {
     saveWishListBooks(book);
@@ -62,7 +61,7 @@ const BookDetails = () => {
                 key={idx}
                 className="bg-[#23be0a0d] text-[#23be0a] rounded-lg p-2 font-[work-sans] font-medium"
               >
-                {tag}
+                #{tag}
               </p>
             );
           })}
@@ -101,7 +100,7 @@ const BookDetails = () => {
         <section className="mt-8 flex gap-5">
           <div
             onClick={() => handleRead(bookDetails)}
-            className="px-5 py-2.5 cursor-pointer font-semibold font-[work-sans] bg-blue-50 hover:bg-blue-100 text-lg hover:text-[#131313] text-blue-500 rounded-lg "
+            className="px-5 py-2.5 cursor-pointer font-semibold font-[work-sans] bg-blue-50 hover:bg-fuchsia-200 text-lg hover:text-[#131313] text-blue-500 rounded-lg "
           >
             Read
           </div>

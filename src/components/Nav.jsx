@@ -1,9 +1,8 @@
-
 import { NavLink } from "react-router-dom";
 
 const Nav = () => {
   return (
-    <div className="navbar fixed top-0 z-10 lg:px-10 bg-base-100">
+    <div className="navbar sticky top-0 z-10 lg:px-10 bg-base-100">
       <div className="navbar-start">
         <div className="dropdown">
           <div
@@ -34,8 +33,8 @@ const Nav = () => {
               to="/"
               className={({ isActive }) =>
                 isActive
-                  ? "text-[#23be0a] font-bold font-[work-sans] text-lg border border-[#23be0a] p-2 md:p-3 rounded-lg md:text-2xl"
-                  : "font-[work-sans] text-lg md:text-2xl"
+                  ? "text-[#23be0a] font-bold font-[work-sans] border border-[#23be0a] p-2 rounded-lg"
+                  : "font-[work-sans]"
               }
             >
               Home
@@ -44,8 +43,8 @@ const Nav = () => {
               to="/listedBooks"
               className={({ isActive }) =>
                 isActive
-                  ? "text-[#23be0a] font-bold font-[work-sans] text-lg border border-[#23be0a] p-2 md:p-3 rounded-lg md:text-2xl"
-                  : "font-[work-sans] text-lg md:text-2xl text-[#131313cc]"
+                  ? "text-[#23be0a] font-bold font-[work-sans] border border-[#23be0a] p-2 rounded-lg"
+                  : "font-[work-sans] text-[#131313cc]"
               }
             >
               Listed Books
@@ -54,8 +53,8 @@ const Nav = () => {
               to="/pagesRead"
               className={({ isActive }) =>
                 isActive
-                  ? "text-[#23be0a] font-bold font-[work-sans] text-lg border border-[#23be0a] p-2 md:p-3 rounded-lg md:text-2xl"
-                  : "font-[work-sans] text-lg md:text-2xl text-[#131313cc]"
+                  ? "text-[#23be0a] font-bold font-[work-sans] border border-[#23be0a] p-2 rounded-lg "
+                  : "font-[work-sans]  text-[#131313cc]"
               }
             >
               Pages to Read

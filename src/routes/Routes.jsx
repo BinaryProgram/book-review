@@ -4,6 +4,8 @@ import Home from "../pages/Home";
 import ListedBooks from "../pages/ListedBooks";
 import PagesRead from "../pages/PagesRead";
 import BookDetails from "../pages/BookDetails";
+import ReadBook from "../components/ReadBook";
+import WishListBooks from "../components/WishListBooks";
 
 export const router = createBrowserRouter([
   {
@@ -17,6 +19,16 @@ export const router = createBrowserRouter([
       {
         path: "/listedBooks",
         element: <ListedBooks />,
+        children: [
+          {
+            index: true,
+            element: <ReadBook />,
+          },
+          {
+            path: "wishlist",
+            element: <WishListBooks />,
+          },
+        ],
       },
       {
         path: "/pagesRead",
@@ -27,7 +39,6 @@ export const router = createBrowserRouter([
         element: <BookDetails />,
         // Static JSON files can only be fetched entirely (you can't access them like folders).
         // loader: ({params}) => fetch(`/books.json/${params.id}`)
-        
         loader: async ({ params }) => {
           const res = await fetch("/books.json");
           const data = await res.json();

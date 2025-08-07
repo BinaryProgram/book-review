@@ -4,7 +4,7 @@ import Nav from "../components/Nav";
 const MainLayouts = () => {
   return (
     <div>
-      <div>
+      <div className="relative">
         <Nav />
       </div>
       <div className="container mx-auto">

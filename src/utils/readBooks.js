@@ -21,12 +21,10 @@ export const saveReadBooks = (clickBook) => {
   const isWishListBooksExist = wishListBooks.find(
     (book) => book.bookId === clickBook.bookId
   );
-  if (isWishListBooksExist) {
-    return toast.error("Oops! Already in Wishlist Books😞");
-  } else if (isExist) {
-    return toast.error("Already added to read Books😞");
+  if (isExist) {
+    return toast.error("You Have Already Read This Books");
   }
   readBooks.push(clickBook);
   localStorage.setItem("readBooks", JSON.stringify(readBooks));
-  toast.success("Read Books added Successful😎");
+  toast.success("Books Added To Readlist😎");
 };

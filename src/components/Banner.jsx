@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
-    <div className="flex flex-col gap-6 lg:flex-row-reverse  bg-base-200 mt-10 items-center justify-evenly p-5">
+    <div className="flex flex-col gap-6 lg:flex-row-reverse  bg-base-200 mt-12 items-center justify-evenly p-5">
       <div>
         <img src="/public/pngwing.png" />
       </div>
