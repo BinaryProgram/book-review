@@ -1,8 +1,8 @@
+import { Link } from "react-router-dom";
 import { IoLocationOutline, IoPeopleOutline } from "react-icons/io5";
 import { PiFilmScriptLight } from "react-icons/pi";
-import { Link } from "react-router-dom";
 
-const ReadBook = (props) => {
+const WishListBook = (props) => {
   const {
     bookId,
     bookName,
@@ -22,8 +22,12 @@ const ReadBook = (props) => {
         <img src={image} alt="books" className="w-40 h-40 object-contain" />
       </div>
       <div>
-        <h1 className="font-[playFair-display] text-2xl font-bold text-[#131313]">{bookName}</h1>
-        <h3 className="font-[work-sans] font-medium text-[#131313cc] mt-4">By : {author}</h3>
+        <h1 className="font-[playFair-display] text-2xl font-bold text-[#131313]">
+          {bookName}
+        </h1>
+        <h3 className="font-[work-sans] font-medium text-[#131313cc] mt-4">
+          By : {author}
+        </h3>
         <div className="flex gap-3 mt-6">
           <div className="flex gap-3 items-center">
             <h1 className="text-[#131313] font-[work-sans] font-bold">Tag </h1>
@@ -42,7 +46,9 @@ const ReadBook = (props) => {
             <span>
               <IoLocationOutline size={20} />
             </span>
-            <p className="font-[work-sans] text-[#131313cc]">Year of Publishiing : {yearOfPublishing}</p>
+            <p className="font-[work-sans] text-[#131313cc]">
+              Year of Publishiing : {yearOfPublishing}
+            </p>
           </div>
         </div>
         <div className="flex gap-3 mt-6">
@@ -79,4 +85,4 @@ const ReadBook = (props) => {
   );
 };
 
-export default ReadBook;
+export default WishListBook;

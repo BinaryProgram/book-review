@@ -20,7 +20,7 @@ const ListedBooks = () => {
         <div
           tabIndex={0}
           role="button"
-          className="btn m-1 w-56 flex justify-between"
+          className="btn m-1 w-56 flex justify-center gap-2"
         >
           <span>Sort By</span>
           <span
