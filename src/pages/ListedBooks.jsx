@@ -3,11 +3,29 @@ import { IoIosArrowDown } from "react-icons/io";
 import { useEffect, useState } from "react";
 
 const ListedBooks = () => {
-  const [anime, setAnime] = useState(false);
   const [tabIndex, setTabIndex] = useState(0);
-  const [open,IsOpen] = useState(false);
-
-
+  const [open, isOpen] = useState(false);
+  const [selectOption, setSelectOption] = useState(null);
+  console.log(open);
+  const options = [
+    {
+      value: 1,
+      item: "Rating",
+    },
+    {
+      value: 2,
+      item: "Number of pages",
+    },
+    {
+      value: 3,
+      item: "Published year",
+    },
+  ];
+  const handleSelectOption = (items) => {
+    setSelectOption(items.item);
+  };
+  useEffect(() => {}, [open]);
+  console.log(selectOption);
   return (
     <div className="mt-8">
       <div className="bg-[#1313130d] text-center p-8 rounded-lg">
@@ -15,20 +33,21 @@ const ListedBooks = () => {
           Books
         </h1>
       </div>
-      <div
-        onClick={() => setAnime(!anime)}
-        className="dropdown dropdown-bottom flex mt-8 items-center justify-center"
-      >
+      <div className=" relative flex mt-8 items-center justify-center">
         <div
+          onClick={() => {
+            isOpen(!open);
+          }}
           tabIndex={0}
-          onClick={() => IsOpen(!open)}
           role="button"
           className="btn m-1 w-56 flex justify-center gap-2 bg-[#23be0a] text-lg font-[work-sans] font-semibold"
         >
-          <span className="text-lg font-[work-sans] font-semibold text-[#fff]">Sort By</span>
+          <span className="text-lg font-[work-sans] font-semibold text-[#fff]">
+            {selectOption ? selectOption : "Sort By"}
+          </span>
           <span
             className={`${
-              anime
+              open
                 ? "transition duration-100 translate-y-1 text-white"
                 : "transition duration-100 translate-y-0 text-white"
             }`}
@@ -36,20 +55,28 @@ const ListedBooks = () => {
             <IoIosArrowDown />
           </span>
         </div>
-        <ul
-          tabIndex={0}
-          className="dropdown-content flex items-center menu rounded-box z-1 p-2 shadow-sm w-56 bg-[#1313130d]"
-        > <li>Sort By</li>
-          <li>
-            <a className="font-[work-sans] text-[#131313cc]">Rating</a>
-          </li>
-          <li>
-            <a className="font-[work-sans] text-[#131313cc]">Number of Pages</a>
-          </li>
-          <li>
-            <a className="font-[work-sans] text-[#131313cc]">Published Year</a>
-          </li>
-        </ul>
+
+        {open && (
+          <ul
+            className={`flex absolute items-center flex-col  rounded-box z-1  shadow-sm w-56 bg-[#1313130d] mt-44 ${
+              open ? "block" : "hidden"
+            }`}
+          >
+            <li className="font-[work-sans] text-[#131313cc]">Sort By</li>
+            {options.map((option) => (
+              <li
+                key={option.value}
+                onClick={() => {
+                  handleSelectOption(option);
+                  isOpen(!open);
+                }}
+                className="font-[work-sans] rounded-lg text-[#131313cc] cursor-pointer hover:bg-amber-100 p-2"
+              >
+                {option.item}
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
       <div className="flex mt-24 overflow-x-auto overflow-y-hidden ">
         <Link
@@ -60,11 +87,11 @@ const ListedBooks = () => {
           }`}
         >
           <span
-            className={`${
-              tabIndex === 0
-                ? "text-[#131313cc] font-[work-sans] text-lg"
-                : "text-lg text-[#13131380] font-[work-sans]"
-            }`}
+          // className={`${
+          //   tabIndex === 0
+          //     ? "text-[#131313cc] font-[work-sans] text-lg"
+          //     : "text-lg text-[#13131380] font-[work-sans]"
+          // }`}
           >
             Read Books
           </span>
