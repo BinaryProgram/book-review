@@ -9,7 +9,6 @@ const WishListBook = (props) => {
     image,
     author,
     category,
-    review,
     tags,
     totalPages,
     publisher,
@@ -17,7 +16,7 @@ const WishListBook = (props) => {
     rating,
   } = props.book;
   return (
-    <div className="flex gap-6 border border-[#13131326] p-4 rounded-2xl">
+    <div className="flex flex-col md:flex-row gap-6 border border-[#13131326] p-4 rounded-2xl">
       <div className=" flex items-center justify-center p-6 rounded-lg bg-[#f3f3f3]">
         <img src={image} alt="books" className="w-40 h-40 object-contain" />
       </div>
@@ -28,7 +27,7 @@ const WishListBook = (props) => {
         <h3 className="font-[work-sans] font-medium text-[#131313cc] mt-4">
           By : {author}
         </h3>
-        <div className="flex gap-3 mt-6">
+        <div className="flex flex-col md:flex-row gap-3 mt-6">
           <div className="flex gap-3 items-center">
             <h1 className="text-[#131313] font-[work-sans] font-bold">Tag </h1>
             {tags.map((tag, idx) => {
@@ -66,7 +65,7 @@ const WishListBook = (props) => {
           </p>
         </div>
         <div className="border-b border-[#13131326] my-4"></div>
-        <div className="flex gap-3 items-center">
+        <div className="flex flex-col md:flex-row gap-3 items-center">
           <p className="px-5 py-2 bg-[#328eff26] text-[#328eff] rounded-2xl font-[work-sans]">
             Category : {category}
           </p>

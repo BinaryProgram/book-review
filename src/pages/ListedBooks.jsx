@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 const ListedBooks = () => {
   const [anime, setAnime] = useState(false);
   const [tabIndex, setTabIndex] = useState(0);
+  const [open,IsOpen] = useState(false);
+
 
   return (
     <div className="mt-8">
@@ -19,15 +21,16 @@ const ListedBooks = () => {
       >
         <div
           tabIndex={0}
+          onClick={() => IsOpen(!open)}
           role="button"
-          className="btn m-1 w-56 flex justify-center gap-2"
+          className="btn m-1 w-56 flex justify-center gap-2 bg-[#23be0a] text-lg font-[work-sans] font-semibold"
         >
-          <span>Sort By</span>
+          <span className="text-lg font-[work-sans] font-semibold text-[#fff]">Sort By</span>
           <span
             className={`${
               anime
-                ? "transition duration-100 translate-y-1"
-                : "transition duration-100 translate-y-0"
+                ? "transition duration-100 translate-y-1 text-white"
+                : "transition duration-100 translate-y-0 text-white"
             }`}
           >
             <IoIosArrowDown />
@@ -35,20 +38,20 @@ const ListedBooks = () => {
         </div>
         <ul
           tabIndex={0}
-          className="dropdown-content flex items-center menu bg-base-100 rounded-box z-1 p-2 shadow-sm w-56"
-        >
+          className="dropdown-content flex items-center menu rounded-box z-1 p-2 shadow-sm w-56 bg-[#1313130d]"
+        > <li>Sort By</li>
           <li>
-            <a>Rating</a>
+            <a className="font-[work-sans] text-[#131313cc]">Rating</a>
           </li>
           <li>
-            <a>Number of Pages</a>
+            <a className="font-[work-sans] text-[#131313cc]">Number of Pages</a>
           </li>
           <li>
-            <a>Published Year</a>
+            <a className="font-[work-sans] text-[#131313cc]">Published Year</a>
           </li>
         </ul>
       </div>
-      <div className="flex mt-16 overflow-x-auto overflow-y-hidden ">
+      <div className="flex mt-24 overflow-x-auto overflow-y-hidden ">
         <Link
           to={""}
           onClick={() => setTabIndex(0)}
