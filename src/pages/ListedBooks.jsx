@@ -1,12 +1,13 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { IoIosArrowDown } from "react-icons/io";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import ReadBooks from "../components/ReadBooks";
+import WishListBooks from "../components/WishListBooks";
 
 const ListedBooks = () => {
   const [tabIndex, setTabIndex] = useState(0);
   const [open, isOpen] = useState(false);
   const [selectOption, setSelectOption] = useState(null);
-  console.log(open);
   const options = [
     {
       value: 1,
@@ -24,8 +25,7 @@ const ListedBooks = () => {
   const handleSelectOption = (items) => {
     setSelectOption(items.item);
   };
-  useEffect(() => {}, [open]);
-  console.log(selectOption);
+
   return (
     <div className="mt-8">
       <div className="bg-[#1313130d] text-center p-8 rounded-lg">
@@ -33,7 +33,7 @@ const ListedBooks = () => {
           Books
         </h1>
       </div>
-      <div className=" relative flex mt-8 items-center justify-center">
+      <div className="relative flex mt-8 items-center justify-center">
         <div
           onClick={() => {
             isOpen(!open);
@@ -42,7 +42,10 @@ const ListedBooks = () => {
           role="button"
           className="btn m-1 w-56 flex justify-center gap-2 bg-[#23be0a] text-lg font-[work-sans] font-semibold"
         >
-          <span className="text-lg font-[work-sans] font-semibold text-[#fff]">
+          <span
+            id="sort"
+            className="text-lg font-[work-sans] font-semibold text-[#fff]"
+          >
             {selectOption ? selectOption : "Sort By"}
           </span>
           <span
@@ -87,11 +90,11 @@ const ListedBooks = () => {
           }`}
         >
           <span
-          // className={`${
-          //   tabIndex === 0
-          //     ? "text-[#131313cc] font-[work-sans] text-lg"
-          //     : "text-lg text-[#13131380] font-[work-sans]"
-          // }`}
+            className={`${
+              tabIndex === 0
+                ? "text-[#131313cc] font-[work-sans] text-lg"
+                : "text-lg text-[#13131380] font-[work-sans]"
+            }`}
           >
             Read Books
           </span>
@@ -114,7 +117,13 @@ const ListedBooks = () => {
           </span>
         </Link>
       </div>
-      <Outlet />
+      {
+        tabIndex ===0 && (<ReadBooks searchValue={selectOption} />)
+      }
+      {
+        tabIndex === 1 && (<WishListBooks searchValue={selectOption} />)
+      }
+      
     </div>
   );
 };

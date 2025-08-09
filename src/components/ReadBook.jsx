@@ -15,6 +15,7 @@ const ReadBook = (props) => {
     yearOfPublishing,
     rating,
   } = props.book;
+  
   return (
     <div className="flex flex-col md:flex-row gap-6 border border-[#13131326]  p-4 rounded-2xl">
       <div className=" flex items-center justify-center p-6 rounded-lg bg-[#f3f3f3]">
