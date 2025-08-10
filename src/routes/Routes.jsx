@@ -6,11 +6,13 @@ import PagesRead from "../pages/PagesRead";
 import BookDetails from "../pages/BookDetails";
 import WishListBooks from "../components/WishListBooks";
 import ReadBooks from "../components/ReadBooks";
+import ErrorPage from "../pages/ErrorPage";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayouts />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -18,7 +20,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/listedBooks",
-        element: <ListedBooks/>,
+        element: <ListedBooks />,
         children: [
           {
             index: true,

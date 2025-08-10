@@ -1,11 +1,12 @@
 import { useLoaderData } from "react-router-dom";
 import { saveReadBooks } from "../utils/readBooks";
 import { saveWishListBooks } from "../utils/wishListBooks";
+import ErrorPage from "./ErrorPage";
 
 const BookDetails = () => {
   const bookDetails = useLoaderData();
   // must check bookDetails is undefine or not before destructuring
-  if (!bookDetails) return <div>book Not found!</div>;
+  if (!bookDetails) return <ErrorPage />;
 
   const {
     bookId,
