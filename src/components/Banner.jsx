@@ -5,7 +5,7 @@ const Banner = () => {
   return (
     <div className="flex flex-col gap-6 lg:flex-row-reverse  bg-base-200 mt-12 items-center justify-evenly p-5">
       <div>
-        <img src="/public/pngwing.png" />
+        <img src="pngwing.png" />
       </div>
       <div>
         <h1 className="text-5xl font-bold font-[playfair-display] text-[#131313] leading-16">

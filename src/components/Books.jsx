@@ -1,11 +1,11 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import BooksCard from "./BooksCard";
 
 const Books = () => {
   const [books, setBooks] = useState([]);
   useEffect(() => {
-    axios.get("/public/books.json").then((data) => {
+    axios.get("books.json").then((data) => {
       setBooks(data.data);
     });
   }, []);

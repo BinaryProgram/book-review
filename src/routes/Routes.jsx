@@ -42,7 +42,7 @@ export const router = createBrowserRouter([
         // Static JSON files can only be fetched entirely (you can't access them like folders).
         // loader: ({params}) => fetch(`/books.json/${params.id}`)
         loader: async ({ params }) => {
-          const res = await fetch("/books.json");
+          const res = await fetch("books.json");
           const data = await res.json();
           return data.find((book) => params.id === book.bookId.toString());
         },
